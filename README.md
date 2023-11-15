@@ -6,7 +6,7 @@ categories: media
 ---
 
 
-![Cover](/Users/yonwang/Desktop/Gene Plot/Figure 2.jpeg)
+![](https://raw.githubusercontent.com/YzwIsALaity/Gene-Map-Tutorial-in-R/0e7db2a2436dadda942687893249bd16f51e9a79/Figure%202.jpeg)
 
 
 This tutorial introduces the visualization of __gene maps with arrows in R using the `ggplot2` and `gggenes` packages__. It provides a linear representation of gene strain segments in genomes, commonly employed in scientific publications for gene description. We'll generate a synthetic dataset to simulate a gene map resembling Figure 1E in a recent paper detailing a [mouse model for triple-negative breast cancer](https://www.nature.com/articles/s41467-023-40841-6). This synthetic dataset comprises three distinct genomes, each containing different gene segments. With a straightforward structure, the dataset consists of four columns:
@@ -17,7 +17,7 @@ This tutorial introduces the visualization of __gene maps with arrows in R using
   
   - `Start` and `End`: they are used to denote the __starting and ending location of a gene segment__ within a genome (numerical).
 
-![](/Users/yonwang/Desktop/Gene Plot/Dataset 1.png)
+![](https://raw.githubusercontent.com/YzwIsALaity/Gene-Map-Tutorial-in-R/0e7db2a2436dadda942687893249bd16f51e9a79/Dataset%201.png)
 
 We will initially demonstrate how to visualize a single genome and then extend the discussion to multiple genomes. Two core functions are used to generate a gene map:
 
@@ -95,7 +95,7 @@ p3
 grid.arrange(p1, p2, p3, ncol = 1)
 ```
 
-![](/Users/yonwang/Desktop/Gene Plot/Figure 1.jpeg)
+![](https://raw.githubusercontent.com/YzwIsALaity/Gene-Map-Tutorial-in-R/0e7db2a2436dadda942687893249bd16f51e9a79/Figure%201.jpeg)
 
 The initial plot represents the default version, the second plot reflects a slight modification to the arrowhead, and in the last one, we remove the legend while adding text labels to the genes. After visualizing a single genome, the next step involves creating a collective representation of multiple genomes in a single figure. Here, the `facet_wrap()` function from the `ggplot2` package becomes essential. Given that genes in genomes occupy distinct locations, __it's crucial to include the argument `scales = "free"` in the function__. This enables stacking various gene maps together using `ncol = 1`.
 
@@ -122,7 +122,7 @@ ggplot(Dt,
 p4
 ```
 
-![](/Users/yonwang/Desktop/Gene Plot/Figure 2.jpeg)
+![](https://raw.githubusercontent.com/YzwIsALaity/Gene-Map-Tutorial-in-R/0e7db2a2436dadda942687893249bd16f51e9a79/Figure%202.jpeg)
 
 In this figure, each gene map for every genome is vertically stacked, with each gene designated a unique color. In this synthetic dataset for genomes, the genes are not shared across genomes. However, at times, the same genes are shared across different genomes, but located in different positions. Hence, we'll introduce the `make_alignment_dummies()` function from the `gggenes` package to assist in aligning genes across genomes. We will use the sample dataset provided by the `gggenes` package to show how we can align genes across genomes. The `make_alignment_dummies()` function takes several arguments:
 
@@ -146,7 +146,7 @@ After passing the gene dataset into the `make_alignment_dummies()` function, it'
 
 - `orientation`: the orientation of the gene (1 for left, 0 for right)
 
-![](/Users/yonwang/Desktop/Gene Plot/Dataset 2.png)
+![](https://raw.githubusercontent.com/YzwIsALaity/Gene-Map-Tutorial-in-R/0e7db2a2436dadda942687893249bd16f51e9a79/Dataset%202.png)
 
 As the sample dataset includes gene orientations, indicating the arrowhead orientation for each gene, this information can be integrated into the figure using an additional argument, `aes(forward = orientation)`, in the `geom_gene_arrow()` function. Please note that the `forward` argument can only accept a vector with numerical values of 0 or 1. We can incorporate all this information to generate a comprehensive gene map plot:
 
@@ -176,6 +176,6 @@ ggplot(example_genes,
 p5
 ```
 
-![](/Users/yonwang/Desktop/Gene Plot/Figure 3.jpeg)
+![](https://raw.githubusercontent.com/YzwIsALaity/Gene-Map-Tutorial-in-R/0e7db2a2436dadda942687893249bd16f51e9a79/Figure%203.jpeg)
 
 In this gene map, we can find that the figure was aligned in the `geneE`. 
