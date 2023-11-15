@@ -1,0 +1,11 @@
+﻿Molecule,Gene,Start,End
+Rosa LSL-Myc,ROSA,10000,12000
+Rosa LSL-Myc,STOP,12003,14003
+Rosa LSL-Myc,c-Myc,14006,16000
+Pten fl,Pten,9500,9700
+Pten fl,E1-E3,9703,9903
+Pten fl,E4,9906,10006
+Pten fl,E5,10009,11009
+Pten fl,E6-E9,11012,13012
+Blg-Cre,Blg,11000,13000
+Blg-Cre,Cre,13003,15003
